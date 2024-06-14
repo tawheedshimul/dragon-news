@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
 import Navbar from '../Shared/Navbar/Navbar';
 import { AuthContext } from '../../providers/AuthProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Register() {
 
     const { createUser } = useContext(AuthContext);
+
+    const location = useLocation();
+    const navigate = useNavigate();
 
 
     const handleRegister = e => {
@@ -18,17 +22,20 @@ function Register() {
 
         console.log(email, photo, name, password);
 
-        createUser(email,password)
-        .then(result=>{
-            console.log(result.user)
-        })
-        .catch(error=>{
-            console.error(error);
-        })
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+                navigate(location?.state ? location.state : '/');
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
     return (
         <div>
-            <Navbar />
+            <div className='fixed top-0 w-full'>
+                <Navbar />
+            </div>
             <div className="flex items-center justify-center min-h-screen bg-gray-100">
                 <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
                     <h2 className="text-2xl font-semibold text-center mb-6">Register your account</h2>
