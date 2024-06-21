@@ -14,8 +14,10 @@ const Home = () => {
         <div>
             <Header />
             <BreakingNews />
-            <Navbar />
-            <div className='grid grid-cols-1 md:grid-cols-4 gap-6'>
+            <div className='sticky top-0'>
+                <Navbar />
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-4 gap-6 mt-'>
                 <div className=''>
                     <LeftSideNav />
                 </div>

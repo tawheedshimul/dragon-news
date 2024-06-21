@@ -9,7 +9,9 @@ const News = () => {
     return (
         <div>
             <Header />
+            <div className='sticky top-0'>
             <Navbar />
+            </div>
             <div className="grid md:grid-cols-4">
                 <div className='col-span-3'>
                     <h2 className="text-4xl">News Details</h2>

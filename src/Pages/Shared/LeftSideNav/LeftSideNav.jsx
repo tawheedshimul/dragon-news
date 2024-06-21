@@ -5,7 +5,7 @@ const LeftSideNav = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('categories.json')
+        fetch('https://server-tawheed-blog.vercel.app/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
@@ -14,7 +14,7 @@ const LeftSideNav = () => {
             <h2 className="text-xl">All Categoried</h2>
 
             {
-                categories.map(category=><Link to={`/category/${category.id}`} className='block hover:underline p-2' key={category.id}>{category.name}</Link> )
+                categories.map(category => <Link to={`/category/${category.id}`} className='block hover:underline p-2' key={category.id}>{category.name}</Link>)
             }
         </div>
     );

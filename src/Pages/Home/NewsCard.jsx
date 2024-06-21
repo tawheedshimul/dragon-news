@@ -2,19 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NewsCard = ({ news }) => {
-    const { title, image_url, total_view, details, _id } = news;
+    const { title, image_url, total_view, details, _id, author } = news;
     return (
         <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-3">
             <div className="px-6 py-4">
                 <div className="flex items-center">
                     <img
                         className="w-10 h-10 rounded-full mr-4"
-                        src="https://via.placeholder.com/40"
+                        src={author.img}
                         alt="Avatar"
                     />
                     <div className="text-sm">
-                        <p className="text-gray-900 leading-none">Awlad Hossain</p>
-                        <p className="text-gray-600">2022-08-21</p>
+                        <p className="text-gray-900 leading-none">{author.name}</p>
+                        <p className="text-gray-600">{author.published_date}</p>
                     </div>
                 </div>
                 <div className="mt-4">

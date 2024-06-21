@@ -15,14 +15,14 @@ function Register() {
         e.preventDefault();
         console.log(e.currentTarget)
         const form = new FormData(e.currentTarget);
-        const name = form.get('name');
+        const displayName = form.get('displayName');
         const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
 
-        console.log(email, photo, name, password);
+        console.log(email, photo, displayName, password);
 
-        createUser(email, password)
+        createUser(email, password ,displayName)
             .then(result => {
                 console.log(result.user)
                 navigate(location?.state ? location.state : '/');
@@ -48,7 +48,7 @@ function Register() {
                                 className="w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:border-blue-300"
                                 type="text"
                                 id="name"
-                                name='name'
+                                name='displayName'
                                 placeholder="Enter your name"
                             />
                         </div>

@@ -15,7 +15,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: () => fetch('/news.json')
+                loader: () => fetch('https://server-tawheed-blog.vercel.app/posts')
             },
             {
                 path: '/news/:id',
