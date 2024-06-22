@@ -18,16 +18,17 @@ const Home = () => {
 
     return (
         <div>
-            <Header />
-            <BreakingNews />
-            <div className='sticky top-0 border-b'>
+            {/* <Header />
+            <BreakingNews /> */}
+            <div className='fixed top-0 left-0 w-full px-4 border-b'>
                 <Navbar />
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-4 gap-6 mt-'>
-                <div className=''>
+            {/* <div className=''></div> */}
+            <div className='lg:flex items-start justify-between'>
+                <div className=' mt-24 hidden lg:block'>
                     <LeftSideNav />
                 </div>
-                <div className='md:col-span-2 border-x border-b'>
+                <div className='md:col-span-2 border-x border-b mt-[70px] overflow-y-scroll overflow-hidden' style={{ height: 'calc(100vh - 70px)' }}>
                     {news.slice(0, visibleCount).map(aNews => (
                         <NewsCard key={aNews._id} news={aNews} />
                     ))}
@@ -36,10 +37,13 @@ const Home = () => {
                             Show More
                         </button>
                     ) : (
-                        <p className=" mt-4 w-full bg-red-500 mx-auto text-white p-2">No more stories... <ImCrying/> </p>
+                        <p className="mt-4 w-full bg-red-500 mx-auto text-white p-2">
+                            No more stories... <ImCrying />
+                        </p>
                     )}
                 </div>
-                <div className=''>
+
+                <div className='mt-[70px] overflow-y-scroll overflow-hidden hidden lg:block'v style={{ height: 'calc(100vh - 70px)' }}>
                     <RightSideNav />
                 </div>
             </div>

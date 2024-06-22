@@ -7,15 +7,15 @@ import { AuthContext } from '../../../providers/AuthProvider';
 
 const NavBar = () => {
 
-        const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
-         console.log(user)
+    console.log(user)
 
-         const handleSignOut = () => {
-             logOut()
-                 .then()
-                 .catch()
-         }
+    const handleSignOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
 
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -36,19 +36,19 @@ const NavBar = () => {
 
     return (
         <div className="bg-white w-full">
-            <div className="mx-auto px-4 py-4 flex justify-between items-center">
+            <div className="mx-auto  py-3 flex justify-between items-center">
                 {/* <Link className="flex items-center">
                     Home
                 </Link> */}
                 {
-                     user ?
+                    user ?
 
-                         <div>
-                             {user.email}
-                             <button onClick={handleSignOut} className='btn'>SignOut</button></div>
-                         :
-                         <Link to='/login' className='btn'>Login</Link>
-                 }
+                        <div>
+                            {user.email}
+                            <button onClick={handleSignOut} className='btn'>SignOut</button></div>
+                        :
+                        <Link to='/login' className='btn'>Login</Link>
+                }
                 <ul className="hidden md:flex space-x-6">
                     {navItems}
                 </ul>
